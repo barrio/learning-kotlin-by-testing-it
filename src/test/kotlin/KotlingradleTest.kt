@@ -70,11 +70,12 @@ object KotlingradleTest: Spek({
         val pointA = Point(1, 1)
         val pointB = Point(2, 2)
         on("overloading plus operator for class Point") {
+            val pointC = pointA + pointB
             it("plus operator should add Points") {
-                assertEquals(Point(3, 3).x,
-                             pointA.x + pointB.x)
-                assertEquals(Point(3, 3).y,
-                             pointA.y + pointB.y)
+                assertEquals(3,
+                             pointC.x)
+                assertEquals(3,
+                             pointC.y)
             }
         }
     }
