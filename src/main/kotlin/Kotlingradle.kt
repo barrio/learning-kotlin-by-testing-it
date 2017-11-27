@@ -18,6 +18,13 @@ fun Any?.nullableTypesCanBeExtended() =
             null -> "extension on null"
             else -> "extension on non-null"
         }
+/**
+ * Have to use classes for multiple named return values
+ */
+data class TwoNamedValues(val valueB:String, val valueA: String)
+
+fun swapTwoNamedValues(valueA: String, valueB: String) = TwoNamedValues(valueB, valueA)
+
 fun main(args: Array<String>) {
     println(giveHelloMessage())
 }

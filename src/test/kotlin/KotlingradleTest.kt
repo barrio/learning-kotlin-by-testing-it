@@ -56,4 +56,20 @@ object KotlingradleTest: Spek({
             }
         }
     }
+    given("a function returning two values") {
+        on("accessing values by name") {
+            val (valueB, valueA) = swapTwoNamedValues(valueA = "valueA", valueB = "valueB")
+            it("should return correct named values") {
+                assertEquals("valueA", valueA)
+                assertEquals("valueB", valueB)
+            }
+        }
+    }
+    given("") {
+        on("") {
+            it("") {
+
+            }
+        }
+    }
 })
