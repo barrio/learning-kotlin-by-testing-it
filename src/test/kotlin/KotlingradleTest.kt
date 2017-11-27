@@ -3,6 +3,7 @@ import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.on
 import org.jetbrains.spek.api.dsl.it
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertSame
 
 
 object KotlingradleTest: Spek({
@@ -62,6 +63,18 @@ object KotlingradleTest: Spek({
             it("should return correct named values") {
                 assertEquals("valueA", valueA)
                 assertEquals("valueB", valueB)
+            }
+        }
+    }
+    given("Two point objects") {
+        val pointA = Point(1, 1)
+        val pointB = Point(2, 2)
+        on("overloading plus operator for class Point") {
+            it("plus operator should add Points") {
+                assertEquals(Point(3, 3).x,
+                             pointA.x + pointB.x)
+                assertEquals(Point(3, 3).y,
+                             pointA.y + pointB.y)
             }
         }
     }

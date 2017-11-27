@@ -11,7 +11,7 @@ class ExistingType {
     fun functionOfType() = "Member functions shadow extending ones."
 }
 fun ExistingType.functionOfType() =
-        "Extending functions with same signature will never be called!"
+        "Extension functions with same signature as members will never be called!"
 
 fun Any?.nullableTypesCanBeExtended() =
         when (this) {
@@ -24,6 +24,13 @@ fun Any?.nullableTypesCanBeExtended() =
 data class TwoNamedValues(val valueB:String, val valueA: String)
 
 fun swapTwoNamedValues(valueA: String, valueB: String) = TwoNamedValues(valueB, valueA)
+
+/**
+ * Operator overloading
+ */
+class Point(val x: Int, val y: Int) {
+    operator fun plus(point: Point) = Point(x + point.x, y + point.y)
+}
 
 fun main(args: Array<String>) {
     println(giveHelloMessage())
