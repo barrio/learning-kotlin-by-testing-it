@@ -1,6 +1,6 @@
 fun giveHelloMessage() = "Hello world!"
 
-fun functionsCanUse(namedParammeter: Int) = namedParammeter
+fun functionsCanHandle(unnamedParameter: Int, namedParameter: Int) = namedParameter
 
 fun functionsCanHaveDefaultArgs(Parameter: Int = 42) = Parameter
 

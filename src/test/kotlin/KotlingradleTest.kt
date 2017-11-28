@@ -3,7 +3,6 @@ import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.on
 import org.jetbrains.spek.api.dsl.it
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertSame
 
 
 object KotlingradleTest: Spek({
@@ -18,7 +17,7 @@ object KotlingradleTest: Spek({
         on("providing parameter by name") {
             it("should be returned") {
                 assertEquals(42,
-                             functionsCanUse(namedParammeter = 42))
+                             functionsCanHandle(1, namedParameter = 42))
             }
         }
     }
