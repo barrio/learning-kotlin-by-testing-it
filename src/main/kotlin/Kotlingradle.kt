@@ -18,16 +18,11 @@ fun Any?.nullableTypesCanBeExtended() =
             null -> "extension on null"
             else -> "extension on non-null"
         }
-/**
- * Have to use classes for multiple named return values
- */
+/** Have to use classes for multiple named return values */
 data class TwoNamedValues(val valueB:String, val valueA: String)
-
 fun swapTwoNamedValues(valueA: String, valueB: String) = TwoNamedValues(valueB, valueA)
 
-/**
- * Operator overloading
- */
+/** Operator overloading */
 class Point(val x: Int, val y: Int) {
     operator fun plus(point: Point) = Point(x + point.x, y + point.y)
 }
