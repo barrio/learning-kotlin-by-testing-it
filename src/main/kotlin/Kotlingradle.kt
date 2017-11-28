@@ -32,12 +32,8 @@ class Point(val x: Int, val y: Int) {
     operator fun plus(point: Point) = Point(x + point.x, y + point.y)
 }
 
-fun functionsCanHaveVariableNumberOfArgs(vararg strings: String):String {
-    var result = ""
-    for (string in strings)
-        result += string
-    return result
-}
+fun functionsCanHaveVariableNumberOfArgs(vararg strings: String) =
+        strings.fold("", { string1, string2 -> string1 + string2 })
 
 fun main(args: Array<String>) {
     println(giveHelloMessage())
