@@ -79,6 +79,16 @@ object KotlingradleTest: Spek({
             }
         }
     }
+    given("a function with arbitrary number of string args") {
+        on("calling it with different number of string args") {
+            val oneArgCall = functionsCanHaveVariableNumberOfArgs("one")
+            val twoArgsCall = functionsCanHaveVariableNumberOfArgs("one", "two")
+            it("should return all provided string args") {
+                assertEquals("one",    oneArgCall)
+                assertEquals("onetwo", twoArgsCall)
+            }
+        }
+    }
     given("") {
         on("") {
             it("") {
