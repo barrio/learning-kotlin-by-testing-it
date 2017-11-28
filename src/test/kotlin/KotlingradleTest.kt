@@ -65,12 +65,12 @@ object KotlingradleTest: Spek({
             }
         }
     }
-    given("Two point objects") {
+    given("an overloaded plus operator for a Point class") {
         val pointA = Point(1, 1)
         val pointB = Point(2, 2)
-        on("overloading plus operator for class Point") {
+        on("adding two Point objects") {
             val pointC = pointA + pointB
-            it("plus operator should add Points") {
+            it("each x and y coordinate should be summed") {
                 assertEquals(3,
                              pointC.x)
                 assertEquals(3,
@@ -85,6 +85,24 @@ object KotlingradleTest: Spek({
             it("should return all provided string args") {
                 assertEquals("one",    oneArgCall)
                 assertEquals("onetwo", twoArgsCall)
+            }
+        }
+    }
+    given("a function taking another function as parameter") {
+        on("calling the first function with a function parameter") {
+            val applied = functionsCanTakeFunctionsAsParameters(
+                            "string",
+                            { it.reversed() })
+            it("can return the result of the parameter function") {
+                assertEquals("gnirts", applied)
+            }
+        }
+    }
+    given("a function returning another function") {
+        on("assigning the call to a name") {
+            val reversi = functionsCanReturnFunctions()
+            it("calling the name will call that function") {
+                assertEquals("gnirts", reversi("string"))
             }
         }
     }

@@ -30,6 +30,10 @@ class Point(val x: Int, val y: Int) {
 fun functionsCanHaveVariableNumberOfArgs(vararg strings: String) =
         strings.fold("", { string1, string2 -> string1 + string2 })
 
+fun functionsCanTakeFunctionsAsParameters(str: String, fn: (String) -> String) = fn(str)
+
+fun functionsCanReturnFunctions() = { str:String -> str.reversed() }
+
 fun main(args: Array<String>) {
     println(giveHelloMessage())
 }
