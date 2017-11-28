@@ -11,3 +11,4 @@ using Spek's given, on and it descriptions
  the test pass
 5. Repeat these steps for all features to learn
 
+Have fun! :)
