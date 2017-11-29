@@ -106,6 +106,14 @@ object KotlingradleTest: Spek({
             }
         }
     }
+    given("a decorator function") {
+        on("calling it") {
+            val decoratedReturnValue = decoratedFunction()
+            it("should add 'before' & 'after' to undecorated function") {
+                assertEquals("before undecorated after", decoratedReturnValue() )
+            }
+        }
+    }
     given("") {
         on("") {
             it("") {
@@ -113,4 +121,5 @@ object KotlingradleTest: Spek({
             }
         }
     }
+
 })

@@ -1,3 +1,5 @@
+import kotlin.coroutines.experimental.buildIterator
+
 fun giveHelloMessage() = "Hello world!"
 
 fun functionsCanHandle(unnamedParameter: Int, namedParameter: Int) = namedParameter
@@ -33,6 +35,12 @@ fun functionsCanHaveVariableNumberOfArgs(vararg strings: String) =
 fun functionsCanTakeFunctionsAsParameters(str: String, fn: (String) -> String) = fn(str)
 
 fun functionsCanReturnFunctions() = { str:String -> str.reversed() }
+
+val undecoratedFunction = { "undecorated " }
+
+fun decoratorFunction(fn: () -> String): () -> String = { "before " + fn() + "after" }
+
+fun decoratedFunction() = decoratorFunction(undecoratedFunction)
 
 fun main(args: Array<String>) {
     println(giveHelloMessage())
