@@ -36,12 +36,17 @@ fun functionsCanTakeFunctionsAsParameters(str: String, fn: (String) -> String) =
 
 fun functionsCanReturnFunctions() = { str:String -> str.reversed() }
 
-val undecoratedFunction = { "undecorated " }
+val undecoratedFunction1 =  { "undecorated " }
 
-fun decoratorFunction(fn: () -> String): () -> String = { "before " + fn() + "after" }
+fun undecoratedFunction2() = "undecorated "
 
-fun decoratedFunction() = decoratorFunction(undecoratedFunction)
+fun decoratorFunction(fn: () -> String): () -> String =  { "before " + fn() + "after" }
+
+val decoratedFunction1 = decoratorFunction(undecoratedFunction1)
+
+val decoratedFunction2 = decoratorFunction(::undecoratedFunction2)
 
 fun main(args: Array<String>) {
-    println(giveHelloMessage())
+    println(decoratedFunction1())
+    println(decoratedFunction2())
 }
