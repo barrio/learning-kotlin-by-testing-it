@@ -108,9 +108,11 @@ object KotlingradleTest: Spek({
     }
     given("a decorator function") {
         on("calling it") {
-            val decoratedReturnValue = decoratedFunction()
+            val decoratedReturnValue1 = decoratedFunction1()
+            val decoratedReturnValue2 = decoratedFunction2()
             it("should add 'before' & 'after' to undecorated function") {
-                assertEquals("before undecorated after", decoratedReturnValue() )
+                assertEquals("before undecorated after", decoratedReturnValue1 )
+                assertEquals("before undecorated after", decoratedReturnValue2 )
             }
         }
     }
